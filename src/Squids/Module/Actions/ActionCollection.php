@@ -2,7 +2,7 @@
 namespace Squids\Module\Actions;
 
 
-use Squids\Base\Module\Actions\ILoader;
+use Squids\Base\Module\ILoader;
 use Squids\Base\Module\Actions\IActionCollection;
 use Squids\Objects\IAction;
 use Squids\Exceptions\ActionNotFoundException;
@@ -88,5 +88,13 @@ class ActionCollection implements IActionCollection
 		{
 			$this->add($action);
 		}
+	}
+
+	/**
+	 * @return IAction[]
+	 */
+	public function all(): array
+	{
+		return array_values($this->actions);
 	}
 }

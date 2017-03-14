@@ -1,5 +1,5 @@
 <?php
-namespace Squids\Base\Module\Actions;
+namespace Squids\Base\Module;
 
 
 use Squids\Objects\IAction;

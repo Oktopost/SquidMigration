@@ -2,6 +2,7 @@
 namespace Squids\Base\Module\Actions;
 
 
+use Squids\Base\Module\ILoader;
 use Squids\Objects\IAction;
 
 
