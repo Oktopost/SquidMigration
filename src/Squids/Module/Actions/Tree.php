@@ -46,7 +46,7 @@ class Tree implements ITree
 	 */
 	public function head(): array
 	{
-		return $this->getActionsByIDs(array_flip($this->headSet));
+		return $this->getActionsByIDs(array_keys($this->headSet));
 	}
 	
 	/**
@@ -54,7 +54,7 @@ class Tree implements ITree
 	 */
 	public function tail(): array
 	{
-		return $this->getActionsByIDs(array_flip($this->tailSet));
+		return $this->getActionsByIDs(array_keys($this->tailSet));
 	}
 
 	/**
