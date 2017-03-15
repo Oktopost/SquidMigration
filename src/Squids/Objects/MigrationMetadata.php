@@ -7,12 +7,12 @@ use Objection\LiteObject;
 
 
 /**
- * @property int	$ID
- * @property string $ActionID
- * @property string $Name
- * @property string $FullName
- * @property string $StartDate
- * @property string $EndDate
+ * @property int|null	$ID
+ * @property string 	$ActionID
+ * @property string 	$Name
+ * @property string 	$FullName
+ * @property string 	$StartDate
+ * @property string 	$EndDate
  */
 class MigrationMetadata extends LiteObject
 {
@@ -22,7 +22,7 @@ class MigrationMetadata extends LiteObject
 	protected function _setup()
 	{
 		return [
-			'ID'		=> LiteSetup::createInt(),
+			'ID'		=> LiteSetup::createInt(null),
 			'ActionID'	=> LiteSetup::createString(),
 			'Name'		=> LiteSetup::createString(),
 			'FullName'	=> LiteSetup::createString(),

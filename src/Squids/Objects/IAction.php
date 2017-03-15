@@ -2,6 +2,9 @@
 namespace Squids\Objects;
 
 
+use Squid\MySql\IMySqlConnector;
+
+
 interface IAction
 {
 	public function id(): string;
@@ -17,6 +20,8 @@ interface IAction
 	 * @return string[]
 	 */
 	public function dependencies(): array;
+	
+	public function execute(IMySqlConnector $connector);
 	
 	public function __toString();
 }
