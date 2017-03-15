@@ -2,7 +2,7 @@
 namespace Squids\Module\Actions;
 
 
-use Squids\Base\Module\ILoader;
+use Squids\Base\Module\IActionsFS;
 use Squids\Base\Module\Actions\IActionCollection;
 use Squids\Objects\IAction;
 use Squids\Exceptions\ActionNotFoundException;
@@ -82,7 +82,7 @@ class ActionCollection implements IActionCollection
 		$this->nameToID[$action->fullName()] = $action->id();
 	}
 
-	public function load(ILoader $loader)
+	public function load(IActionsFS $loader)
 	{
 		foreach ($loader->get() as $action)
 		{

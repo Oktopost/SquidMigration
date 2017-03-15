@@ -2,7 +2,7 @@
 namespace Squids\Base\Module\Actions;
 
 
-use Squids\Base\Module\ILoader;
+use Squids\Base\Module\IActionsFS;
 use Squids\Objects\IAction;
 
 
@@ -29,5 +29,5 @@ interface IActionCollection
 	 */
 	public function all(): array;
 	
-	public function load(ILoader $loader);
+	public function load(IActionsFS $loader);
 }
