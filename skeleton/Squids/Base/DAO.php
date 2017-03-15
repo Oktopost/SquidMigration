@@ -6,6 +6,8 @@ namespace Squids\Base\DAO;
 $this->set(IConnector::class, \Squids\DAO\Connector\DBConnector::class);
 
 
+use Squids\DAO\MigratingDAO;
 use Squids\DAO\MigrationMetadataDAO;
 
-$this->set(IMigrationMetadataDAO::class, MigrationMetadataDAO::class);
+$this->set(IMigratingDAO::class,			MigratingDAO::class);
+$this->set(IMigrationMetadataDAO::class,	MigrationMetadataDAO::class);
