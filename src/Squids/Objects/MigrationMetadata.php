@@ -41,4 +41,15 @@ class MigrationMetadata extends LiteObject
 	{
 		$this->EndDate = date("Y-m-d H:i:s");
 	}
+	
+	public static function fromAction(IAction $action): MigrationMetadata
+	{
+		$mm = new MigrationMetadata();
+		
+		$mm->ActionID = $action->id();
+		$mm->FullName = $action->fullName();
+		$mm->Name = $action->name();
+		
+		return $mm;
+	}
 }

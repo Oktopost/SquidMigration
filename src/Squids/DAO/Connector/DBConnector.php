@@ -33,11 +33,11 @@ class DBConnector implements IConnector
 	
 	public function metadata(): IMySqlConnector
 	{
-		return self::$mysql->getConnector('meta');
+		return self::mysql()->getConnector('meta');
 	}
 	
 	public function target(): IMySqlConnector
 	{
-		return self::$mysql->getConnector('target');
+		return self::mysql()->getConnector('target');
 	}
 }

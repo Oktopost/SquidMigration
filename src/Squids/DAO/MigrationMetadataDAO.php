@@ -26,6 +26,7 @@ class MigrationMetadataDAO implements IMigrationMetadataDAO
 	
 	public function __construct(IConnector $connector)
 	{
+		$this->connector = $connector;
 		$this->objectConnector = new MySqlAutoIncrementConnector();
 		$this->objectConnector
 			->setConnector($connector->metadata())
@@ -33,13 +34,13 @@ class MigrationMetadataDAO implements IMigrationMetadataDAO
 			->setTable(self::TABLE_NAME)
 			->setIdField('ID');
 	}
-
-
+	
+	
 	public function save(MigrationMetadata $m)
 	{
 		$this->objectConnector->save($m);
 	}
-
+	
 	/**
 	 * @return MigrationMetadata[]
 	 */

@@ -18,7 +18,7 @@ class SquidsScope
 	{
 		$skeleton
 			->enableKnot()
-			->setConfigLoader(new PrefixDirectoryConfigLoader('Squid', __DIR__ . '/../skeleton'));
+			->setConfigLoader(new PrefixDirectoryConfigLoader('Squids', __DIR__ . '/../../skeleton'));
 	}
 	
 	
