@@ -8,7 +8,8 @@ use Squids\Objects\IAction;
 
 abstract class SimpleAction implements IAction
 {
-	const ID = 'UNDEFINED';
+	const ID	= 'UNDEFINED';
+	const DEP	= [];
 	
 	
 	public function id(): string
@@ -17,6 +18,11 @@ abstract class SimpleAction implements IAction
 			throw new SquidsException('Const ID must be defined in Action for SimpleAction class!');
 		
 		return static::ID;
+	}
+	
+	public function dependencies(): array
+	{
+		return static::DEP;
 	}
 
 	public function name(): string

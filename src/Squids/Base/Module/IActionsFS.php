@@ -3,6 +3,7 @@ namespace Squids\Base\Module;
 
 
 use Squids\Objects\IAction;
+use Squids\Prepared\NewAction;
 
 
 /**
@@ -17,13 +18,7 @@ interface IActionsFS
 
 	/**
 	 * Create the directories for new Action. 
-	 * @param IAction $newAction
+	 * @param NewAction $newAction
 	 */
-	public function init(IAction $newAction);
-
-	/**
-	 * Delete action directories
-	 * @param IAction $action
-	 */
-	public function delete(IAction $action);
+	public function init(NewAction $newAction);
 }

@@ -59,4 +59,9 @@ class ReportModule implements IReporter
 		echo "*********************************\n";
 		echo "\n\n";
 	}
+
+	public function onNewAction(IAction $action)
+	{
+		echo "New Action created: $action\n";
+	}
 }

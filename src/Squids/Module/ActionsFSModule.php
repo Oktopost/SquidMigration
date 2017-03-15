@@ -4,7 +4,9 @@ namespace Squids\Module;
 
 use Squids\SquidsScope;
 use Squids\Base\Module\IActionsFS;
+use Squids\Module\FS\TemplateGenerator;
 use Squids\Objects\IAction;
+use Squids\Prepared\NewAction;
 use Squids\Exceptions\SquidsException;
 
 
@@ -145,19 +147,33 @@ class ActionsFSModule implements IActionsFS
 
 	/**
 	 * Create the directories for new Action.
-	 * @param IAction $newAction
+	 * @param NewAction $newAction
 	 */
-	public function init(IAction $newAction)
+	public function init(NewAction $newAction)
 	{
+		$parts = [date('Y'), date('m'), date('d'), $newAction->name()];
 		
-	}
-
-	/**
-	 * Delete action directories
-	 * @param IAction $action
-	 */
-	public function delete(IAction $action)
-	{
-		// TODO: Implement delete() method.
+		$path = SquidsScope::config()->Paths->MigrationsDir;
+		$namespace = self::DEFAULT_NAMESPACE;
+	
+		foreach ($parts as $part)
+		{
+			$path = $path . '/' . $part;
+			
+			if ($part != $newAction->name())
+				$namespace .= '_' . $part;
+			
+			if (!is_dir($path))
+			{
+				if (!mkdir($path))
+					throw new SquidsException('Failed to create directory ' . $path);
+			}
+		}
+		
+		$fullName = $namespace . '\\' . $newAction->name();
+		$newAction->setFullName($fullName);
+		
+		$tempGen = new TemplateGenerator();
+		$tempGen->generate($path, $newAction);
 	}
 }

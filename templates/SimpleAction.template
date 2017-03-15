@@ -1,0 +1,19 @@
+<?php
+namespace {%name_space%};
+
+
+use Squid\MySql\IMySqlConnector;
+use Squids\Prepared\SimpleAction;
+
+
+class {%name%} extends SimpleAction
+{
+	const ID = '{%id%}';
+	const DEP = {%dep%};
+	
+	
+	public function execute(IMySqlConnector $connector)
+	{
+		
+	}
+}

@@ -7,7 +7,10 @@ use Squids\Base\Module\IActionsFS;
 use Squids\Base\Module\Actions\ITree;
 use Squids\Base\Module\Actions\IActionCollection;
 
+use Squids\Prepared\NewAction;
 use Squids\SquidsScope;
+use Squids\Objects\IAction;
+use Squids\Utils;
 
 
 /**
@@ -29,6 +32,12 @@ class ActionsModule implements IActions
 	 * @var \Squids\Base\Module\Actions\IActionCollection
 	 */
 	private $collection;
+
+	/**
+	 * @autoload
+	 * @var \Squids\Base\Module\IReporter
+	 */
+	private $reporter;
 	
 	
 	private function load()
@@ -57,5 +66,20 @@ class ActionsModule implements IActions
 	{
 		$this->load();
 		return $this->tree;
+	}
+	
+	public function generate(string $name)
+	{
+		$action = new NewAction();
+		
+		$action->setID(Utils::generateID());
+		$action->setName($name);
+		$action->setDependencies($this->tree()->head());
+		
+		/** @var IActionsFS $fs */
+		$fs = SquidsScope::skeleton(IActionsFS::class);
+		$fs->init($action);
+		
+		$this->reporter->onNewAction($action);
 	}
 }

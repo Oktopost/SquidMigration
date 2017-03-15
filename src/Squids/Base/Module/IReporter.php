@@ -23,8 +23,9 @@ interface IReporter
 	 */
 	public function afterMigration(array $targetActions);
 	
-	
+	public function onNewAction(IAction $action);
 	public function beforeAction(IAction $action);
 	public function afterAction(IAction $action, MigrationMetadata $data);
 	public function onError(\Exception $e);
+	
 }
