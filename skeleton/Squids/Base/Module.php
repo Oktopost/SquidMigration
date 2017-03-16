@@ -23,3 +23,9 @@ use Squids\Base\Module\Actions\IActionCollection;
 
 $this->set(ITree::class,				Tree::class);
 $this->set(IActionCollection::class,	ActionCollection::class);
+
+
+use Squids\Base\Module\Config\ISetup;
+use Squids\Module\Config\Setup;
+
+$this->set(ISetup::class, Setup::class);

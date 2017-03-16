@@ -40,4 +40,10 @@ class DB
 		$callback = $this->getMetadataDBCallback;
 		return $callback();
 	}
+	
+
+	public function __debugInfo()
+	{
+		return [];
+	}
 }
