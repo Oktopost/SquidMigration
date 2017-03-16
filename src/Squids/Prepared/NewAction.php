@@ -2,10 +2,10 @@
 namespace Squids\Prepared;
 
 
-use Squid\MySql\IMySqlConnector;
-
 use Squids\Objects\IAction;
 use Squids\Exceptions\SquidsException;
+
+use Squid\MySql\IMySqlConnector;
 
 
 class NewAction implements IAction
@@ -58,6 +58,11 @@ class NewAction implements IAction
 	{
 		return $this->fullName;
 	}
+	
+	public function dir(): string
+	{
+		throw new \Exception('Should not be called!');
+	}
 
 	/**
 	 * @return string[]
@@ -68,9 +73,9 @@ class NewAction implements IAction
 	}
 	
 	/**
-	 * @return array|string
+	 * @return array
 	 */
-	public function scriptFiles()
+	public function scriptFiles(): array
 	{
 		return [];
 	}

@@ -4,6 +4,7 @@ namespace Squids\Base\Module;
 
 
 use Squids\Module\ReportModule;
+use Squids\Module\CLIController;
 use Squids\Module\ActionsModule;
 use Squids\Module\ActionsFSModule;
 use Squids\Module\MigrationModule;
@@ -11,10 +12,11 @@ use Squids\Module\MigrationStateModule;
 use Squids\Module\Actions\Tree;
 use Squids\Module\Actions\ActionCollection;
 
-$this->set(IReporter::class,		ReportModule::class);
 $this->set(IActions::class,			ActionsModule::class);
+$this->set(IReporter::class,		ReportModule::class);
 $this->set(IActionsFS::class,		ActionsFSModule::class);
 $this->set(IMigration::class,		MigrationModule::class);
+$this->set(ICLIController::class,	CLIController::class);
 $this->set(IMigrationState::class,	MigrationStateModule::class);
 
 

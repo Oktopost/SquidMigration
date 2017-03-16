@@ -10,11 +10,12 @@ interface IAction
 	public function id(): string;
 	public function name(): string;
 	public function fullName(): string;
+	public function dir(): string;
 
 	/**
-	 * @return array|string
+	 * @return array
 	 */
-	public function scriptFiles();
+	public function scriptFiles(): array;
 	
 	/**
 	 * @return string[]

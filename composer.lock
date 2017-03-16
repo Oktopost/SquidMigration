@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3104fb9eda7fae100c920a3331275c16",
+    "content-hash": "1aa61050acfd6aa534a9036769e1e285",
     "packages": [
         {
             "name": "oktopost/objection",
@@ -95,16 +95,16 @@
         },
         {
             "name": "oktopost/squid",
-            "version": "1.0.21",
+            "version": "1.0.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Oktopost/Squid.git",
-                "reference": "9fbb3f7e8d142354b17f4073ce29df0f137337bf"
+                "reference": "4466f64dd552bf77b8e94cf399fe8a7d98e48e82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Oktopost/Squid/zipball/9fbb3f7e8d142354b17f4073ce29df0f137337bf",
-                "reference": "9fbb3f7e8d142354b17f4073ce29df0f137337bf",
+                "url": "https://api.github.com/repos/Oktopost/Squid/zipball/4466f64dd552bf77b8e94cf399fe8a7d98e48e82",
+                "reference": "4466f64dd552bf77b8e94cf399fe8a7d98e48e82",
                 "shasum": ""
             },
             "require": {
@@ -131,7 +131,7 @@
             ],
             "description": "MySQL library build on top of PDO",
             "homepage": "https://github.com/Oktopost/Squid",
-            "time": "2017-03-16T07:03:18+00:00"
+            "time": "2017-03-16T14:57:48+00:00"
         }
     ],
     "packages-dev": [
@@ -1208,16 +1208,16 @@
         },
         {
             "name": "sebastian/object-reflector",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/object-reflector.git",
-                "reference": "2201553542d60d25db9c5b2c54330df776648008"
+                "reference": "afd5797e7af7c9f529879ad5e8e8abe126c89dab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/object-reflector/zipball/2201553542d60d25db9c5b2c54330df776648008",
-                "reference": "2201553542d60d25db9c5b2c54330df776648008",
+                "url": "https://api.github.com/repos/sebastianbergmann/object-reflector/zipball/afd5797e7af7c9f529879ad5e8e8abe126c89dab",
+                "reference": "afd5797e7af7c9f529879ad5e8e8abe126c89dab",
                 "shasum": ""
             },
             "require": {
@@ -1229,7 +1229,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "1.1-dev"
                 }
             },
             "autoload": {
@@ -1249,7 +1249,7 @@
             ],
             "description": "Allows reflection of object attributes, including inherited and non-public ones",
             "homepage": "https://github.com/sebastianbergmann/object-reflector/",
-            "time": "2017-03-12T15:10:22+00:00"
+            "time": "2017-03-16T14:05:21+00:00"
         },
         {
             "name": "sebastian/recursion-context",

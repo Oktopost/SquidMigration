@@ -2,6 +2,7 @@
 namespace Squids\Module;
 
 
+use Squids\Exceptions\SquidsException;
 use Squids\Objects\MigrationMetadata;
 use Squids\SquidsScope;
 use Squids\Base\Module\IMigration;
@@ -49,6 +50,40 @@ class MigrationModule implements IMigration
 		
 		return $this->actions->collection()->getByFullName($identifier);
 	}
+
+	/**
+	 * @param IAction $action
+	 * @return string[]
+	 */
+	private function getScripts(IAction $action): array
+	{
+		$scripts = [];
+		
+		foreach ($action->scriptFiles() as $file)
+		{
+			$scripts = array_merge($scripts, glob($action->dir() . '/' . $file));
+		}
+		
+		return $scripts;
+	}
+	
+	private function runScripts(IAction $action)
+	{
+		$scripts = $this->getScripts($action);
+		
+		foreach ($scripts as $script)
+		{
+			if (!file_exists($script))
+				throw new SquidsException("Script file [$script] was not found. Used in action $action");
+		}
+		
+		foreach ($scripts as $script)
+		{
+			$this->reporter->beforeSqlScript($script);
+			$this->migratingDAO->executeScript($script);
+			$this->reporter->afterSqlScript($script);
+		}
+	}
 	
 	
 	/**
@@ -62,6 +97,7 @@ class MigrationModule implements IMigration
 		$this->reporter->beforeAction($action);
 		
 		$metaData->start();
+		$this->runScripts($action);
 		$this->migratingDAO->executeAction($action);
 		$metaData->end();
 		

@@ -26,7 +26,7 @@ class ConfigLoader
 		foreach (self::SEARCH_FOR as $item)
 		{
 			$fullPath = $dir . '/' . $item;
-			var_dump($fullPath);
+			
 			if (file_exists($fullPath))
 			{
 				return $fullPath;

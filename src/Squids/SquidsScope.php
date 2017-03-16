@@ -6,7 +6,6 @@ use Squids\Base\Module\Config\ISetup;
 use Squids\Config\Main;
 
 use Skeleton\Skeleton;
-use Skeleton\ConfigLoader\PrefixDirectoryConfigLoader;
 
 
 class SquidsScope
@@ -18,7 +17,7 @@ class SquidsScope
 	{
 		$skeleton
 			->enableKnot()
-			->setConfigLoader(new PrefixDirectoryConfigLoader('Squids', __DIR__ . '/../../skeleton'));
+			->setConfigLoader(new SkeletonLoader('Squids', __DIR__ . '/../../skeleton'));
 	}
 	
 	

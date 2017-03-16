@@ -13,3 +13,6 @@
 # Test objects
 test.php
 /test/*
+
+# Phar
+/phar/build/squid

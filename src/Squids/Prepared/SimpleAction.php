@@ -35,10 +35,15 @@ abstract class SimpleAction implements IAction
 		return (new \ReflectionClass(get_class($this)))->getName();
 	}
 	
+	public function dir(): string
+	{
+		return dirname((new \ReflectionClass(get_class($this)))->getFileName());
+	}
+	
 	/**
-	 * @return array|string
+	 * @return array
 	 */
-	public function scriptFiles()
+	public function scriptFiles(): array
 	{
 		return [
 			'*.sql'
@@ -47,6 +52,6 @@ abstract class SimpleAction implements IAction
 
 	public function __toString()
 	{
-		return "Action ID {$this->id()}, name {$this->fullName()}";
+		return "Action ID {$this->id()}, name {$this->name()}";
 	}
 }

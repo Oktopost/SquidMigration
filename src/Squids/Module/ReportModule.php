@@ -10,6 +10,7 @@ use Squids\Objects\MigrationMetadata;
 class ReportModule implements IReporter
 {
 	private $startTime;
+	private $scriptStartTime;
 	
 
 	public function nothingToUpdate()
@@ -23,7 +24,7 @@ class ReportModule implements IReporter
 	public function beforeMigration(array $targetActions)
 	{
 		$count = count($targetActions);
-		echo "About to execute total of $count actions...\n";
+		echo "About to execute total of $count actions...\n\n";
 	}
 
 	/**
@@ -34,6 +35,17 @@ class ReportModule implements IReporter
 		echo "Migration complete without errors\n";
 	}
 	
+	public function beforeSqlScript(string $scriptPath)
+	{
+		$this->scriptStartTime = microtime(true);
+		echo "    Running script file: $scriptPath\n";
+	}
+	
+	public function afterSqlScript(string $scriptPath)
+	{
+		$endTime = microtime(true);
+		echo "        Complete in " . round($endTime - $this->scriptStartTime, 3) . " sec\n";
+	}
 
 	public function beforeAction(IAction $action)
 	{
@@ -44,7 +56,7 @@ class ReportModule implements IReporter
 	public function afterAction(IAction $action, MigrationMetadata $data)
 	{
 		$endTime = microtime(true);
-		echo "    Complete in " . round($endTime - $this->startTime, 3) . " sec\n";
+		echo "    Complete in " . round($endTime - $this->startTime, 3) . " sec\n\n";
 	}
 
 	public function onError(\Exception $e)

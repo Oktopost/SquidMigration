@@ -24,6 +24,8 @@ interface IReporter
 	public function afterMigration(array $targetActions);
 	
 	public function onNewAction(IAction $action);
+	public function beforeSqlScript(string $scriptPath);
+	public function afterSqlScript(string $scriptPath);
 	public function beforeAction(IAction $action);
 	public function afterAction(IAction $action, MigrationMetadata $data);
 	public function onError(\Exception $e);

@@ -5,6 +5,8 @@ namespace Squids\DAO;
 use Squids\Base\DAO\IMigratingDAO;
 use Squids\Objects\IAction;
 
+use Squid\MySql\Impl\Connectors\FileConnector;
+
 
 /**
  * @autoload
@@ -21,7 +23,8 @@ class MigratingDAO implements IMigratingDAO
 	
 	public function executeScript(string $path)
 	{
-		// TODO: $this->connector->target();
+		$fileConnector = new FileConnector($this->connector->target());
+		$fileConnector->execute($path);
 	}
 
 	public function executeAction(IAction $action)
