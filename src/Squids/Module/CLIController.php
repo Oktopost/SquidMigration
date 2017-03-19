@@ -27,7 +27,9 @@ class CLIController implements ICLIController
 	
 	private function setup()
 	{
-		
+		/** @var \Squids\Base\Module\IDBSetup $migration */
+		$migration = SquidsScope::skeleton(\Squids\Base\Module\IDBSetup::class);
+		$migration->run();
 	}
 	
 	private function printHelp()
