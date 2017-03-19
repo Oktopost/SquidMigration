@@ -32,7 +32,7 @@ class ReportModule implements IReporter
 	 */
 	public function afterMigration(array $targetActions)
 	{
-		echo "Migration complete without errors\n";
+		echo "Migration complete\n";
 	}
 	
 	public function beforeSqlScript(string $scriptPath)
