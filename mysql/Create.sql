@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS `squids` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `squids`;
+CREATE DATABASE IF NOT EXISTS `squid` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `squid`;
 
 CREATE TABLE IF NOT EXISTS `_SquidMigration_Metadata_` 
 (

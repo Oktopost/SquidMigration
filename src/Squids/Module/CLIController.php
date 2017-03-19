@@ -25,6 +25,11 @@ class CLIController implements ICLIController
 		$migration->update();
 	}
 	
+	private function setup()
+	{
+		
+	}
+	
 	private function printHelp()
 	{
 		echo "\n";
@@ -33,6 +38,7 @@ class CLIController implements ICLIController
 		echo "Usage:\n";
 		echo "    squid update             - Run all needed migrations\n";
 		echo "    squid init ActionName    - Create a new migration action called \"ActionName\"\n";
+		echo "    squid setup              - Create SquidMigration metadata DB interactively\n";
 		echo "\n";
 	}
 	
@@ -64,6 +70,10 @@ class CLIController implements ICLIController
 		else if (array_search('update', $argv) !== false)
 		{
 			$this->update();
+		}
+		else if (array_search('setup', $argv) !== false)
+		{
+			$this->setup();
 		}
 		else 
 		{
