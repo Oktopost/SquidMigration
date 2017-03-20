@@ -72,6 +72,16 @@ class NewAction implements IAction
 		return $this->dependencies;
 	}
 	
+	public function author(): string
+	{
+		return '';
+	}
+	
+	public function description(): string
+	{
+		return '';
+	}
+	
 	/**
 	 * @return array
 	 */

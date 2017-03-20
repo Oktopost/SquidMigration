@@ -11,6 +11,8 @@ interface IAction
 	public function name(): string;
 	public function fullName(): string;
 	public function dir(): string;
+	public function author(): string;
+	public function description(): string;
 
 	/**
 	 * @return array

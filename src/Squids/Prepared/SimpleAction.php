@@ -8,8 +8,10 @@ use Squids\Objects\IAction;
 
 abstract class SimpleAction implements IAction
 {
-	const ID	= 'UNDEFINED';
-	const DEP	= [];
+	const ID			= 'UNDEFINED';
+	const DEP			= [];
+	const AUTHOR		= 'unknown';
+	const DESCRIPTION	= '';
 	
 	
 	public function id(): string
@@ -38,6 +40,16 @@ abstract class SimpleAction implements IAction
 	public function dir(): string
 	{
 		return dirname((new \ReflectionClass(get_class($this)))->getFileName());
+	}
+	
+	public function author(): string
+	{
+		return static::AUTHOR;
+	}
+	
+	public function description(): string
+	{
+		return static::DESCRIPTION;
 	}
 	
 	/**
