@@ -11,9 +11,26 @@ class ReportModule implements IReporter
 {
 	private $startTime;
 	private $scriptStartTime;
+	private $totalActions;
+	private $dotsCount;
+	private $hadScripts;
 	
-
-	public function nothingToUpdate()
+	private $currentAction = 0;
+	
+	
+	private function getActionNumber(): string
+	{
+		$length = strlen($this->totalActions);
+		
+		return '[ ' . 
+			str_pad($this->currentAction, $length, ' ', STR_PAD_LEFT) . 
+			' / ' . 
+			$this->totalActions . 
+		' ]';
+	}
+	
+	
+	public function nothingToUpdate(): void
 	{
 		echo "DB is up to date\n";
 	}
@@ -21,45 +38,81 @@ class ReportModule implements IReporter
 	/**
 	 * @param IAction[] $targetActions
 	 */
-	public function beforeMigration(array $targetActions)
+	public function beforeMigration(array $targetActions): void
 	{
 		$count = count($targetActions);
-		echo "About to execute total of $count actions...\n\n";
+		$this->totalActions = $count;
+		
+		echo "\nFound $count actions\n";
+		echo "================================\n\n";
+	}
+
+	public function beforeAction(IAction $action): void
+	{
+		$this->hadScripts = false;
+		$this->currentAction++;
+		$this->startTime = microtime(true);
+		
+		echo $this->getActionNumber() . ' ' . $action->__toString() . "\n\n";
+	}
+	
+	public function beforeSqlScript(string $scriptPath): void
+	{
+		if ($this->hadScripts)
+			echo "\n";
+		else
+			$this->hadScripts = true;
+		
+		$this->dotsCount = 0;
+		
+		$name = substr($scriptPath, strrpos($scriptPath, '/') + 1);
+		
+		echo "    > $name\n    ";
+		
+		$this->scriptStartTime = microtime(true);
+	}
+	
+	public function afterSqlCommand(): void
+	{
+		$this->dotsCount++;
+		
+		if ($this->dotsCount >= 51)
+		{
+			$this->dotsCount = 0;
+			echo "\n    ";
+		}
+		
+		echo '.';
+	}
+	
+	public function afterSqlScript(string $scriptPath): void
+	{
+		$endTime = microtime(true);
+		
+		$spaces = str_pad('', 50 - $this->dotsCount, ' ');
+			
+		echo $spaces . '[' . round($endTime - $this->scriptStartTime, 3) . " sec]\n";
+	}
+
+	public function afterAction(IAction $action, MigrationMetadata $data): void
+	{
+		if ($this->hadScripts)
+		{
+			$endTime = microtime(true);
+			echo "\n    Complete in " . round($endTime - $this->startTime, 3) . " sec\n\n";
+		}
 	}
 
 	/**
 	 * @param IAction[] $targetActions
 	 */
-	public function afterMigration(array $targetActions)
+	public function afterMigration(array $targetActions): void
 	{
-		echo "Migration complete\n";
+		echo "================================\n";
+		echo "Migration complete\n\n";
 	}
 	
-	public function beforeSqlScript(string $scriptPath)
-	{
-		$this->scriptStartTime = microtime(true);
-		echo "    Running script file: $scriptPath\n";
-	}
-	
-	public function afterSqlScript(string $scriptPath)
-	{
-		$endTime = microtime(true);
-		echo "        Complete in " . round($endTime - $this->scriptStartTime, 3) . " sec\n";
-	}
-
-	public function beforeAction(IAction $action)
-	{
-		$this->startTime = microtime(true);
-		echo 'Running: ' . $action->__toString() . "\n";
-	}
-
-	public function afterAction(IAction $action, MigrationMetadata $data)
-	{
-		$endTime = microtime(true);
-		echo "    Complete in " . round($endTime - $this->startTime, 3) . " sec\n\n";
-	}
-
-	public function onError(\Exception $e)
+	public function onError(\Exception $e): void
 	{
 		echo "\n\n";
 		echo "*********************************\n";
@@ -72,7 +125,7 @@ class ReportModule implements IReporter
 		echo "\n\n";
 	}
 
-	public function onNewAction(IAction $action)
+	public function onNewAction(IAction $action): void
 	{
 		echo "New Action created: $action\n";
 	}

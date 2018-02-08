@@ -11,8 +11,8 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "oktopost/skeleton": "^1.0",
-        "oktopost/objection": "^1.0",
+        "oktopost/skeleton": "^1.1",
+        "oktopost/objection": "^1.0.13",
         "oktopost/squid": "1.0.22"
     },
     "require-dev": {

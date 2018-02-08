@@ -80,7 +80,14 @@ class MigrationModule implements IMigration
 		foreach ($scripts as $script)
 		{
 			$this->reporter->beforeSqlScript($script);
-			$this->migratingDAO->executeScript($script);
+			
+			$this->migratingDAO->executeScript(
+				$script,
+				function ()
+				{
+					$this->reporter->afterSqlCommand();
+				});
+			
 			$this->reporter->afterSqlScript($script);
 		}
 	}

@@ -10,6 +10,6 @@ use Squids\Objects\IAction;
  */
 interface IMigratingDAO
 {
-	public function executeScript(string $path);
-	public function executeAction(IAction $action);
+	public function executeScript(string $path, ?callable $callback = null): void;
+	public function executeAction(IAction $action): void;
 }
