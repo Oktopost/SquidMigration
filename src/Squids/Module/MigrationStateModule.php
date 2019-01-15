@@ -37,19 +37,48 @@ class MigrationStateModule implements IMigrationState
 
 	private function bufferDependencies(IAction $action, array &$existingSet, array &$buffer)
 	{
-		foreach ($action->dependencies() as $dependency)
+		$actionID		= $action->id();
+		$dependencies	= [$actionID => true];
+		$map			= [];
+		
+		while ($dependencies)
 		{
-			if (!isset($existingSet[$dependency]))
+			foreach ($dependencies as $dependency => $true)
 			{
-				$dependencyAction = $this->actions->collection()->get($dependency);
-				$this->bufferDependencies($dependencyAction, $existingSet, $buffer);
+				if (!isset($map[$dependency]))
+				{
+					$dependencyAction = $this->actions->collection()->get($dependency);
+					$subDependencies = $dependencyAction->dependencies();
+					$map[$dependencyAction->id()] = $subDependencies;
+					$dependencies[$dependencyAction->id()] = true;
+				}
+				
+				foreach ($map[$dependency] as $index => $subDependency)
+				{
+					if (isset($existingSet[$subDependency]))
+					{
+						unset($map[$dependency][$index]);
+					}
+					else 
+					{
+						$dependencies[$subDependency] = true;
+					}
+				}
+				
+				if (count($map[$dependency]) == 0)
+				{
+					unset($dependencies[$dependency]);
+					unset($map[$dependency]);
+					$existingSet[$dependency] = true;
+					$buffer[] = $dependency;
+				}
 			}
 		}
 		
-		if (!isset($existingSet[$action->id()]))
+		if (!isset($existingSet[$actionID]))
 		{
-			$existingSet[$action->id()] = true;
-			$buffer[] = $action->id();
+			$existingSet[$actionID] = true;
+			$buffer[] = $actionID;
 		}
 	}
 	
