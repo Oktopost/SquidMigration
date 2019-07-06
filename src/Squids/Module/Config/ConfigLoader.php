@@ -21,7 +21,7 @@ class ConfigLoader
 	
 	private function findConfigFile(): string
 	{
-		$dir = '/home/alexey/Code/oktopost'; //getcwd();
+		$dir = getcwd();
 		
 		foreach (self::SEARCH_FOR as $item)
 		{
@@ -55,8 +55,8 @@ class ConfigLoader
 			throw new SquidsException('Failed to parse config file: ' . $fullPath);
 		}
 		
-		$main->Paths->DBConfigFile = '/home/alexey/Code/oktopost' . '/' . $data['main']['config.db-file'];
-		$main->Paths->MigrationsDir = '/home/alexey/Code/oktopost' . '/' . $data['main']['dir.main'];
+		$main->Paths->DBConfigFile = getcwd() . '/' . $data['main']['config.db-file'];
+		$main->Paths->MigrationsDir = getcwd() . '/' . $data['main']['dir.main'];
 		
 		if (!file_exists($main->Paths->DBConfigFile))
 			throw new SquidsException('Failed to find file: ' . $main->Paths->DBConfigFile);
