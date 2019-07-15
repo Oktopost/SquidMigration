@@ -47,7 +47,7 @@ EOT;
 		echo "Host: $host\n";
 		echo "DB:   $db\n";
 		
-		$isCorrect = $this->get('Is correct [y/N]: ', 'n');
+		$isCorrect = $this->get('Is correct [Y/n]: ', 'y');
 		
 		if (strtolower($isCorrect) !== 'y')
 		{
@@ -80,7 +80,8 @@ EOT;
 		}
 		catch (\Exception $e)
 		{
-			echo "\nFailed to connect to database! Validate your configuration\n\n";
+			echo "\nFailed to connect to database! Validate your configuration.\n";
+			echo "Got error: \n\t{$e->getCode()}, {$e->getMessage()}\n\n";
 			die;
 		}
 		
