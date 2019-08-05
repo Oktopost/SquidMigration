@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e6c4a855ca4edb087f1680370ba9ceea",
+    "content-hash": "7017d32a6148ce498f42bcd4b8bd8897",
     "packages": [
         {
             "name": "oktopost/objection",
@@ -103,16 +103,16 @@
         },
         {
             "name": "oktopost/squid",
-            "version": "1.1.4",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Oktopost/Squid.git",
-                "reference": "ea2e8355c17e496ffb956d21dd9f8fe3614f5bac"
+                "reference": "d3e2d3dab9fb226d6c8297a84285945885610771"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Oktopost/Squid/zipball/ea2e8355c17e496ffb956d21dd9f8fe3614f5bac",
-                "reference": "ea2e8355c17e496ffb956d21dd9f8fe3614f5bac",
+                "url": "https://api.github.com/repos/Oktopost/Squid/zipball/d3e2d3dab9fb226d6c8297a84285945885610771",
+                "reference": "d3e2d3dab9fb226d6c8297a84285945885610771",
                 "shasum": ""
             },
             "require": {
@@ -155,7 +155,7 @@
             ],
             "description": "MySQL library build on top of PDO",
             "homepage": "https://github.com/Oktopost/Squid",
-            "time": "2019-06-21T12:48:56+00:00"
+            "time": "2019-07-25T14:37:45+00:00"
         },
         {
             "name": "oktopost/unit-cover",

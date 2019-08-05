@@ -13,14 +13,14 @@
     "require": {
         "oktopost/skeleton": "^1.1",
         "oktopost/objection": "^1.0",
-        "oktopost/squid": "^1.1"
+        "oktopost/squid": "^1.1.5"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.0"
     },
 	"autoload": {
-        "psr-0": {
-            "Squids": "src"
+        "psr-4": {
+            "Squids\\": "Source/"
         }
     }
 }

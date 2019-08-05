@@ -1,7 +1,7 @@
 <?php
 $srcs = [
 	realpath(__DIR__ . '/../skeleton'),
-	realpath(__DIR__ . '/../src'),
+	realpath(__DIR__ . '/../Source'),
 	realpath(__DIR__ . '/../templates'),
 ];
 
@@ -11,20 +11,20 @@ $templates = [
 
 $libs = [
 	// Traitor
-	realpath(__DIR__ . '/../vendor/unstable-cacao/traitor/src'),
+	realpath(__DIR__ . '/../vendor/unstable-cacao/traitor/Source'),
 	
 	// LiteObject
 	realpath(__DIR__ . '/../vendor/oktopost/objection/src'),
 	
 	// Skeleton
-	realpath(__DIR__ . '/../vendor/oktopost/skeleton/src'),
+	realpath(__DIR__ . '/../vendor/oktopost/skeleton/Source'),
 	
 	// Squid
 	realpath(__DIR__ . '/../vendor/oktopost/squid/skeleton'),
 	realpath(__DIR__ . '/../vendor/oktopost/squid/src'),
 ];
 
-$buildRoot = realpath(__DIR__ . '/build');
+$buildRoot = realpath(__DIR__ . '/../bin');
 $fileName = 'squid';
 $buildFile = "$buildRoot/$fileName.phar";
 $finalFile = "$buildRoot/$fileName";
