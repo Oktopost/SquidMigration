@@ -43,7 +43,7 @@ class MigrationStateModule implements IMigrationState
 		
 		while ($dependencies)
 		{
-			foreach ($dependencies as $dependency => $true)
+			foreach (array_keys($dependencies) as $dependency)
 			{
 				if (!isset($map[$dependency]))
 				{
@@ -69,8 +69,12 @@ class MigrationStateModule implements IMigrationState
 				{
 					unset($dependencies[$dependency]);
 					unset($map[$dependency]);
-					$existingSet[$dependency] = true;
-					$buffer[] = $dependency;
+					
+					if (!isset($existingSet[$dependency]))
+					{
+						$existingSet[$dependency] = true;
+						$buffer[] = $dependency;
+					}
 				}
 			}
 		}

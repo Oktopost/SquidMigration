@@ -7,10 +7,9 @@ use Squids\Base\Module\IActionsFS;
 use Squids\Base\Module\Actions\ITree;
 use Squids\Base\Module\Actions\IActionCollection;
 
-use Squids\Prepared\NewAction;
-use Squids\SquidsScope;
-use Squids\Objects\IAction;
 use Squids\Utils;
+use Squids\SquidsScope;
+use Squids\Prepared\NewAction;
 
 
 /**
