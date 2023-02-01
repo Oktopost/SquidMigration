@@ -20,8 +20,7 @@ $libs = [
 	realpath(__DIR__ . '/../vendor/oktopost/skeleton/Source'),
 	
 	// Squid
-	realpath(__DIR__ . '/../vendor/oktopost/squid/skeleton'),
-	realpath(__DIR__ . '/../vendor/oktopost/squid/src'),
+	realpath(__DIR__ . '/../vendor/oktopost/squid/Source'),
 ];
 
 $buildRoot = realpath(__DIR__ . '/../bin');

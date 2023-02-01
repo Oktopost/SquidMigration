@@ -2,11 +2,10 @@
 namespace Squids\DAO;
 
 
+use Squid\MySql\Impl\Connectors\Objects\Generic\GenericIdConnector;
 use Squids\Base\DAO\IConnector;
 use Squids\Base\DAO\IMigrationMetadataDAO;
 use Squids\Objects\MigrationMetadata;
-
-use Squid\MySql\Impl\Connectors\MySqlAutoIncrementConnector;
 
 
 /**
@@ -20,19 +19,19 @@ class MigrationMetadataDAO implements IMigrationMetadataDAO
 	/** @var IConnector */
 	private $connector;
 	
-	/** @var MySqlAutoIncrementConnector */
+	/** @var GenericIdConnector */
 	private $objectConnector;
 	
 	
 	public function __construct(IConnector $connector)
 	{
 		$this->connector = $connector;
-		$this->objectConnector = new MySqlAutoIncrementConnector();
+		$this->objectConnector = new GenericIdConnector();
 		$this->objectConnector
 			->setConnector($connector->metadata())
-			->setDomain(MigrationMetadata::class)
+			->setObjectMap(MigrationMetadata::class)
 			->setTable(self::TABLE_NAME)
-			->setIdField('ID');
+			->setAutoIncrementId('ID');
 	}
 	
 	
