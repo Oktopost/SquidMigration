@@ -16,7 +16,7 @@
         "oktopost/squid": "^2.0.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^6.0"
+        "phpunit/phpunit": "^8.1"
     },
 	"autoload": {
         "psr-4": {
