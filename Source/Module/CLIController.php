@@ -35,7 +35,7 @@ class CLIController implements ICLIController
 	private function printHelp()
 	{
 		echo "\n";
-		echo "SquidMigration v0.4\n";
+		echo "SquidMigration v1.0.0\n";
 		echo "-------------------\n";
 		echo "Usage:\n";
 		echo "    squid update             - Run all needed migrations\n";
@@ -49,6 +49,8 @@ class CLIController implements ICLIController
 		echo "\n";
 		echo "Error caught when running squid!\n";
 		echo "{$e->getCode()}: {$e->getMessage()}\n";
+		echo "Trace\n:";
+		echo "{$e->getTraceAsString()}\n";
 		echo "\n";
 	}
 	
