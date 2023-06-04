@@ -169,12 +169,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Oktopost/Squid.git",
-                "reference": "1c646ccffc0b2a51e30f8e879dd74d4e175f6f13"
+                "reference": "690d9d6aa0ecbde860b5b2746e7291cff71365bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Oktopost/Squid/zipball/1c646ccffc0b2a51e30f8e879dd74d4e175f6f13",
-                "reference": "1c646ccffc0b2a51e30f8e879dd74d4e175f6f13",
+                "url": "https://api.github.com/repos/Oktopost/Squid/zipball/690d9d6aa0ecbde860b5b2746e7291cff71365bd",
+                "reference": "690d9d6aa0ecbde860b5b2746e7291cff71365bd",
                 "shasum": ""
             },
             "require": {
@@ -222,7 +222,7 @@
                 "issues": "https://github.com/Oktopost/Squid/issues",
                 "source": "https://github.com/Oktopost/Squid/tree/2.0.0"
             },
-            "time": "2023-06-04T12:10:09+00:00"
+            "time": "2023-06-04T13:03:33+00:00"
         },
         {
             "name": "oktopost/unit-cover",
