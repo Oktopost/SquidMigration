@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "faf1f31fd8a2ddabe392dfdc8977acd2",
+    "content-hash": "d03d0c109e3bea6b452ccf4e2c6ed2ad",
     "packages": [
         {
             "name": "oktopost/jsonencode",
@@ -165,16 +165,16 @@
         },
         {
             "name": "oktopost/squid",
-            "version": "2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Oktopost/Squid.git",
-                "reference": "b9dae8f0ace779ac2cbdd3ddad8396a2fbb32304"
+                "reference": "eb0b81711cc90cd6c1f98a1e5b1e21d3b60deda2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Oktopost/Squid/zipball/b9dae8f0ace779ac2cbdd3ddad8396a2fbb32304",
-                "reference": "b9dae8f0ace779ac2cbdd3ddad8396a2fbb32304",
+                "url": "https://api.github.com/repos/Oktopost/Squid/zipball/eb0b81711cc90cd6c1f98a1e5b1e21d3b60deda2",
+                "reference": "eb0b81711cc90cd6c1f98a1e5b1e21d3b60deda2",
                 "shasum": ""
             },
             "require": {
@@ -220,9 +220,9 @@
             "homepage": "https://github.com/Oktopost/Squid",
             "support": {
                 "issues": "https://github.com/Oktopost/Squid/issues",
-                "source": "https://github.com/Oktopost/Squid/tree/2.0.0"
+                "source": "https://github.com/Oktopost/Squid/tree/v2.0.1"
             },
-            "time": "2023-06-05T09:36:40+00:00"
+            "time": "2023-06-19T13:36:14+00:00"
         },
         {
             "name": "oktopost/unit-cover",
@@ -1775,5 +1775,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.3.0"
 }
