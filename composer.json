@@ -11,12 +11,9 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "oktopost/skeleton": "^2.0.2",
-        "oktopost/objection": "^2.0.2",
-        "oktopost/squid": "^2.0.1"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^8.1"
+        "oktopost/skeleton": "^2.0.4",
+        "oktopost/objection": "^2.0.4",
+        "oktopost/squid": "^2.0.2"
     },
 	"autoload": {
         "psr-4": {

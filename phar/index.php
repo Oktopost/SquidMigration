@@ -7,7 +7,6 @@ spl_autoload_register(function($class)
 {
 	static $psr4Prefixes = [
 		'Squids\\',
-		'Traitor\\'
 	];
 	
 	foreach ($psr4Prefixes as $prefix)

@@ -16,3 +16,4 @@ test.php
 
 # Phar
 /phar/build/squid
+/composer.lock

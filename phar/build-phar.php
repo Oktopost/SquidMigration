@@ -11,7 +11,7 @@ $templates = [
 
 $libs = [
 	// Traitor
-	realpath(__DIR__ . '/../vendor/unstable-cacao/traitor/Source'),
+	realpath(__DIR__ . '/../vendor/oktopost/traitor/src'),
 	
 	// LiteObject
 	realpath(__DIR__ . '/../vendor/oktopost/objection/src'),
