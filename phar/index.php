@@ -21,6 +21,8 @@ spl_autoload_register(function($class)
     include 'phar://' . basename(__DIR__) . '/' . str_replace('\\', '/', $class) . '.php';
 });
 
+require 'phar://' . basename(__DIR__) . '/skeleton.php';
+
 
 /** @var ICLIController $controller */
 $controller = SquidsScope::skeleton(ICLIController::class);
