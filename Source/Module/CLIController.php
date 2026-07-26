@@ -44,7 +44,7 @@ class CLIController implements ICLIController
 		echo "\n";
 	}
 	
-	private function printError(\Exception $e)
+	private function printError(\Throwable $e)
 	{
 		echo "\n";
 		echo "Error caught when running squid!\n";
@@ -54,7 +54,7 @@ class CLIController implements ICLIController
 		echo "\n";
 	}
 	
-	private function runUnsafe()
+	private function runUnsafe(): int
 	{
 		global $argv;
 		
@@ -65,36 +65,38 @@ class CLIController implements ICLIController
 			if (!isset($argv[$initPos + 1]) || !$argv[$initPos + 1])
 			{
 				$this->printHelp();
+				return 1;
 			}
-			else
-			{
-				$this->init($argv[$initPos + 1]);
-			}
+			
+			$this->init($argv[$initPos + 1]);
+			return 0;
 		}
 		else if (array_search('update', $argv) !== false)
 		{
 			$this->update();
+			return 0;
 		}
 		else if (array_search('setup', $argv) !== false)
 		{
 			$this->setup();
+			return 0;
 		}
-		else 
-		{
-			$this->printHelp();
-		}
+		
+		$this->printHelp();
+		return 1;
 	}
 	
 	
-	public function run()
+	public function run(): int
 	{
 		try
 		{
-			$this->runUnsafe();
+			return $this->runUnsafe();
 		}
-		catch (\Exception $e)
+		catch (\Throwable $e)
 		{
 			$this->printError($e);
+			return 1;
 		}
 	}
 }

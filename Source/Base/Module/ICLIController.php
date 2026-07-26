@@ -7,5 +7,5 @@ namespace Squids\Base\Module;
  */
 interface ICLIController
 {
-	public function run();
+	public function run(): int;
 }

@@ -24,4 +24,4 @@ spl_autoload_register(function($class)
 
 /** @var ICLIController $controller */
 $controller = SquidsScope::skeleton(ICLIController::class);
-$controller->run();
+exit($controller->run());
