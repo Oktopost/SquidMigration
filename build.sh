@@ -1,4 +1,4 @@
 cd phar
-php build-phar.php
+php -d phar.readonly=0 build-phar.php
 cd ..
 chmod +x bin/squid

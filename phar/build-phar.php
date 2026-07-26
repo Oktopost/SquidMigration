@@ -9,7 +9,7 @@ $templates = [
 	realpath(__DIR__ . '/../templates')
 ];
 
-$libs = [
+	$libs = [
 	// Traitor
 	realpath(__DIR__ . '/../vendor/oktopost/traitor/src'),
 	
@@ -22,6 +22,14 @@ $libs = [
 	// Squid
 	realpath(__DIR__ . '/../vendor/oktopost/squid/Source'),
 ];
+
+foreach ($libs as $i => $lib)
+{
+	if ($lib === false)
+	{
+		throw new RuntimeException("Missing vendor library path at libs[$i]. Run composer install.");
+	}
+}
 
 $buildRoot = realpath(__DIR__ . '/../bin');
 $fileName = 'squid';
